@@ -14,6 +14,44 @@
     <script defer src="blog_script.js"></script>
 </head>
 <body>
-    <h1>myblog</h1>
+    <div class="header">
+        <label for="blogName" id="blogTitle" class="blogTitle">Blog Name:</label>
+        <br>
+        <input type="text" name="blogName" class="blogName" placeholder="Blog Name">
+        <button type="button" id="submitTitle" class="submitTitle" onclick="submitTitle()">Change Title</button>
+    </div>
+
+
+    <div class="row">
+      <div class="leftcolumn" id="leftcolumn">
+        <p>text</p>
+      </div>
+
+
+      <div class="rightcolumn">
+        <div class="card" id="card">
+          <h2>About Me:</h2>
+            <p class="submitAbout" id="submitAbout"></p>
+            <textarea name="aboutText" class="aboutText1" id="aboutText" cols="40" rows="10" placeholder="About Text"></textarea>
+            <button type="button" onclick="submitAbout()">Change About</button>
+        </div>
+        <div class="card" id="card">
+            <h3>Follow Me:</h3>
+            <p class="followText" id="followText"></p>
+            <input type="text" name="followInput" class="followInput" placeholder="Instagram: @brian_steuber">
+            <br>
+            <br>
+            <button type="button" onclick="submitFollow()">Change Follow</button>
+        </div>
+      </div>
+
+      <div id="template">
+      </div>
+    </div>
+      <div class="footer">
+        <h2>Footer</h2>
+      </div>
+
+    
 </body>
 </html>
