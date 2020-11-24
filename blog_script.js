@@ -4,7 +4,31 @@ var theFinalID;
 var theFinalClass;
 
 function submitPost() {
-    console.log("working");
+    newPostClicked = false;
+    var articleName = $(".articleTitle").val();
+    var paragraphInput = $(".paragraphText").val();
+    var theDate1 = Date();
+    var theDate2 = Date.parse();
+    theFinalID = "#" + theDate2;
+    $(".articleTitle").val("");
+    $(".paragraphText").val("");
+    var articleTitle = $("<h2>");
+    var theDate = $("<h5>");
+    var paragraphText = $("<p>");
+    $(articleTitle).html(articleName);
+    $(theDate).html(theDate1);
+    $(paragraphText).html(paragraphInput);
+    $(articleTitle).attr("id", theDate2);
+    $(theDate).attr("id", theDate2);
+    $(paragraphText).attr("id", theDate2);
+    $(paragraphText).attr("class", theDate2);
+    var className = $(paragraphText).attr('class');
+    console.log(className);
+    theFinalClass = "." + theDate2;
+    $("#newPost").after(paragraphText);
+    $("#newPost").after(theDate);
+    $("#newPost").after(articleTitle);
+    $(".card20").remove(); 
 }
 
 function createPost(element) {
