@@ -15,6 +15,11 @@ function submitPost() {
     var articleTitle = $("<h2>");
     var theDate = $("<h5>");
     var paragraphText = $("<p>");
+    var delete1 = $('<button>');
+    delete1.attr("type", "button");
+    $(delete1).attr("id", theDate2);
+    delete1.text("Delete Button");
+    $(delete1).click(deletePost);
     $(articleTitle).html(articleName);
     $(theDate).html(theDate1);
     $(paragraphText).html(paragraphInput);
@@ -25,6 +30,7 @@ function submitPost() {
     var className = $(paragraphText).attr('class');
     console.log(className);
     theFinalClass = "." + theDate2;
+    $("#newPost").after(delete1);
     $("#newPost").after(paragraphText);
     $("#newPost").after(theDate);
     $("#newPost").after(articleTitle);
@@ -70,4 +76,8 @@ function submitFollow() {
     $(".followInput").val(""); 
     console.log(follow);
     $(".followText").html(follow);
+}
+
+function deletePost() {
+    console.log("working");
 }
