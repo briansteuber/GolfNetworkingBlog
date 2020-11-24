@@ -79,5 +79,9 @@ function submitFollow() {
 }
 
 function deletePost() {
-    console.log("working");
+    var currID = $(this).attr('id');
+    $("#" + currID).remove();
+    $("#" + currID).remove();
+    $("#" + currID).remove();   
+    $("#" + currID).remove();
 }
