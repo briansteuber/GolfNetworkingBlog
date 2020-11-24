@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create Account</title>
+    <link rel="stylesheet" type="text/css" href="new_account_style.css"/>
+    <script defer src="new_account_script.js"></script>
+</head>
+<body>
+    <h1>New User!</h1>
+    <div id="game-container" class="game-container">
+        <div id="container" class="container">
+            <form method="POST" action="login.html">
+                <div>
+                    <label for="firstname">First Name:</label>
+                    <input type="text" id="firstname" name="firstname" required>
+                </div>
+                <br>
+                <div>
+                    <label for="lastname">Last Name:</label>
+                    <input type="text" id="lastname" name="lastname" required>
+                </div>
+                <br>
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <br>
+                <div>
+                    <label for="pass">Password:</label>
+                    <input type="password" id="password" name="password" minlength="8" required>
+                </div>
+                <br>
+                    <input type="checkbox" onclick="myFunction()">Show Password
+                <br>
+                <br>
+                <input type="submit" id="submit-button" value="Create Account">    
+            </form>
+        </div>
+    </div>
+</body>
+</html>
