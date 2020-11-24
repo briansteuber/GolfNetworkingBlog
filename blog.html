@@ -20,17 +20,14 @@
         <input type="text" name="blogName" class="blogName" placeholder="Blog Name">
         <button type="button" id="submitTitle" class="submitTitle" onclick="submitTitle()">Change Title</button>
     </div>
-
-
     <div class="row">
       <div class="leftcolumn" id="leftcolumn">
-        <p>text</p>
+        <br>
+        <input type="submit" id="submit-button" value="New Post" onclick="createPost(this)">
       </div>
-
-
       <div class="rightcolumn">
         <div class="card" id="card">
-          <h2>About Me:</h2>
+          <h3>About Me:</h3>
             <p class="submitAbout" id="submitAbout"></p>
             <textarea name="aboutText" class="aboutText1" id="aboutText" cols="40" rows="10" placeholder="About Text"></textarea>
             <button type="button" onclick="submitAbout()">Change About</button>
@@ -38,20 +35,18 @@
         <div class="card" id="card">
             <h3>Follow Me:</h3>
             <p class="followText" id="followText"></p>
-            <input type="text" name="followInput" class="followInput" placeholder="Instagram: @brian_steuber">
+            <input type="text" name="followInput" class="followInput" placeholder="Instagram: @brian_steuber" size="30">
             <br>
             <br>
             <button type="button" onclick="submitFollow()">Change Follow</button>
         </div>
       </div>
-
       <div id="template">
       </div>
     </div>
       <div class="footer">
-        <h2>Footer</h2>
-      </div>
-
-    
+        <p>Designed by: Brian Steuber</p>
+        <p>Business Inquiries: <a href="">brian.steuber18@gmail.com</a></p>
+      </div>    
 </body>
 </html>
