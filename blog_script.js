@@ -176,3 +176,29 @@ function deletePost2() {
     $("#" + currID).remove();
 }
 
+function editPost() {
+    var currID = $(this).attr('id');
+    newPostClicked = !newPostClicked;
+    if (newPostClicked == true) {
+        $('<div id ="newPost" class="card40">\
+        <br>\
+        <textarea  name="articleTitle" class="articleTitle" placeholder="Article Name" cols="30" rows="1"></textarea>\
+        <br>\
+        <br>\
+        <textarea name="paragraphText" class="paragraphText" cols="50" rows="10" placeholder="Blog Text"></textarea>\
+        <br>\
+        <br>\
+        <button type="button" id="submitPost" onclick="submitPost()">Submit Post</button>\
+        <div>').insertAfter("#submit-button"); 
+    }   
+    else {
+        $(".card40").remove();
+    }
+    $("#h2" + currID).remove();
+    $("#p" + currID).remove();
+    $("#" + currID).remove();   
+    $("#" + currID).remove();
+    $("#" + currID).remove();
+    $("#" + currID).remove();
+}
+
