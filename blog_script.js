@@ -5,6 +5,79 @@ var theFinalClass;
 var theArticleName = "Article Name";
 var theParInput = "Text";
 
+function createPost(element) {
+    newPostClicked = !newPostClicked;
+    if (newPostClicked == true) {
+        $('<div id ="newPost" class="card20">\
+        <br>\
+        <input type="text" name="articleTitle" class="articleTitle" placeholder="Article Title"></input>\
+        <br>\
+        <br>\
+        <textarea name="paragraphText" class="paragraphText" cols="50" rows="10" placeholder="Blog Text"></textarea>\
+        <br>\
+        <br>\
+        <button type="button" id="submitPost" onclick="submitPost()">Submit Post</button>\
+        <div>').insertAfter("#submit-button"); 
+    }   
+    else {
+        $(".card20").remove();
+    }
+}
+
+function replyPost(element) {
+    newPostClicked = !newPostClicked;
+    if (newPostClicked == true) {
+        $('<div id ="newPost" class="card30">\
+        <br>\
+        <input type="text" name="articleTitle" class="articleTitle" placeholder="Article Title"></input>\
+        <br>\
+        <br>\
+        <textarea name="paragraphText" class="paragraphText" cols="50" rows="10" placeholder="Blog Text"></textarea>\
+        <br>\
+        <br>\
+        <button type="button" id="submitPost" onclick="submitPost2()">Submit Post</button>\
+        <div>').insertAfter(theFinalClass); 
+    }   
+    else {
+        $(".card30").remove();
+    }
+}
+
+function editPost() {
+    var currID = $(this).attr('id');
+    newPostClicked = !newPostClicked;
+    if (newPostClicked == true) {
+        $('<div id ="newPost" class="card40">\
+        <br>\
+        <textarea  name="articleTitle" class="articleTitle" placeholder="Article Name" cols="30" rows="1"></textarea>\
+        <br>\
+        <br>\
+        <textarea name="paragraphText" class="paragraphText" cols="50" rows="10" placeholder="Blog Text"></textarea>\
+        <br>\
+        <br>\
+        <button type="button" id="submitPost" onclick="submitPost()">Submit Post</button>\
+        <div>').insertAfter("#submit-button"); 
+        var test = ("#h2"+currID);
+        console.log(test);
+
+        var test2 = ("#p"+currID);
+        console.log(test2);
+        
+
+        $(".articleTitle").html($(test).text());
+        $(".paragraphText").html($(test2).text());
+    }   
+    else {
+        $(".card40").remove();
+    }
+    $("#h2" + currID).remove();
+    $("#p" + currID).remove();
+    $("#" + currID).remove();   
+    $("#" + currID).remove();
+    $("#" + currID).remove();
+    $("#" + currID).remove();
+}
+
 function submitPost() {
     newPostClicked = false;
     var articleName = $(".articleTitle").val();
@@ -61,43 +134,7 @@ function submitPost() {
     $(editButton).click(editPost);
 }
 
-function createPost(element) {
-    newPostClicked = !newPostClicked;
-    if (newPostClicked == true) {
-        $('<div id ="newPost" class="card20">\
-        <br>\
-        <input type="text" name="articleTitle" class="articleTitle" placeholder="Article Title"></input>\
-        <br>\
-        <br>\
-        <textarea name="paragraphText" class="paragraphText" cols="50" rows="10" placeholder="Blog Text"></textarea>\
-        <br>\
-        <br>\
-        <button type="button" id="submitPost" onclick="submitPost()">Submit Post</button>\
-        <div>').insertAfter("#submit-button"); 
-    }   
-    else {
-        $(".card20").remove();
-    }
-}
 
-function replyPost(element) {
-    newPostClicked = !newPostClicked;
-    if (newPostClicked == true) {
-        $('<div id ="newPost" class="card30">\
-        <br>\
-        <input type="text" name="articleTitle" class="articleTitle" placeholder="Article Title"></input>\
-        <br>\
-        <br>\
-        <textarea name="paragraphText" class="paragraphText" cols="50" rows="10" placeholder="Blog Text"></textarea>\
-        <br>\
-        <br>\
-        <button type="button" id="submitPost" onclick="submitPost2()">Submit Post</button>\
-        <div>').insertAfter(theFinalClass); 
-    }   
-    else {
-        $(".card30").remove();
-    }
-}
 
 function submitPost2() {
     newPostClicked = false;
@@ -176,29 +213,4 @@ function deletePost2() {
     $("#" + currID).remove();
 }
 
-function editPost() {
-    var currID = $(this).attr('id');
-    newPostClicked = !newPostClicked;
-    if (newPostClicked == true) {
-        $('<div id ="newPost" class="card40">\
-        <br>\
-        <textarea  name="articleTitle" class="articleTitle" placeholder="Article Name" cols="30" rows="1"></textarea>\
-        <br>\
-        <br>\
-        <textarea name="paragraphText" class="paragraphText" cols="50" rows="10" placeholder="Blog Text"></textarea>\
-        <br>\
-        <br>\
-        <button type="button" id="submitPost" onclick="submitPost()">Submit Post</button>\
-        <div>').insertAfter("#submit-button"); 
-    }   
-    else {
-        $(".card40").remove();
-    }
-    $("#h2" + currID).remove();
-    $("#p" + currID).remove();
-    $("#" + currID).remove();   
-    $("#" + currID).remove();
-    $("#" + currID).remove();
-    $("#" + currID).remove();
-}
 
