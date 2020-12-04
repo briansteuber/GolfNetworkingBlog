@@ -11,6 +11,8 @@ if (process.env.NODE_ENV !== 'production') {
   const session = require('express-session')
   const methodOverride = require('method-override')
   const articleRouter = require('./routes/articles')
+  const Article = require("./models/article.js")
+
 
   mongoose.connect('mongodb://localhost/golfnetworkingblog', { 
     useNewUrlParser: true, useUnifiedTopology: true 
@@ -41,12 +43,10 @@ if (process.env.NODE_ENV !== 'production') {
 
   app.use('/articles', articleRouter)
   
-  app.get('/', checkAuthenticated, (req, res) => {
-    const articles = [{
-        title: 'Test',
-        createdAt: new Date(),
-        description: 'test description'
-    }]
+  app.get('/', checkAuthenticated, async (req, res) => {
+    const articles = await Article.find().sort({
+      createdAt: 'desc'
+    })
     res.render('articles/index.ejs', { name: req.user.name, articles: articles })
   })
   
