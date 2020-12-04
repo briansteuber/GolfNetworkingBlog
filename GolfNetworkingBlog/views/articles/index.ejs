@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <style>
+        * {
+    box-sizing: border-box;
+  }
+  
+  /* Add a gray background color with some padding */
+  body {
+    font-family: Arial;
+    padding: 20px;
+    background: white;
+  }
+  
+  /* Header/Blog Title */
+  .header {
+    padding: 30px;
+    font-size: 40px;
+    text-align: center;
+    background: grey;
+  }
+  
+  /* Create two unequal columns that floats next to each other */
+  /* Left column */
+  .leftcolumn {   
+    float: left;
+    width: 75%;
+  }
+  
+  /* Right column */
+  .rightcolumn {
+    float: left;
+    width: 25%;
+    padding-left: 20px;
+  }
+  
+  /* Add a card effect for articles */
+  .card {
+     background-color: gray;
+     padding: 20px;
+     margin-top: 20px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 20px;
+    text-align: center;
+    background: grey;
+    margin-top: 20px;
+  }
+  
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+      width: 100%;
+      padding: 0;
+    }
+  }
+
+#newPost {
+    background-color: white;
+}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <label for="blogName" id="blogTitle" class="blogTitle">Blog Name:</label>
+        <br>
+        <input type="text" name="blogName" class="blogName" placeholder="Blog Name">
+        <button type="button" id="submitTitle" class="submitTitle" onclick="submitTitle()">Change Title</button>
+    </div>
+    <div class="row">
+      <div class="leftcolumn" id="leftcolumn">
+        <br>
+         <!--<h1>Hi <%= name %></h1>-->
+    <div class ="container">
+        <h1 class="mb-4">Blog Articles</h1>
+        <a href="/articles/new" class="btn btn-success">New Article</a>
+
+
+        <% articles.forEach(article => { %>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h4 class="card-title"><%= article.title %></h4>
+                    <div class="card-subtitle text-muted mb-2">
+                        <%= article.createdAt.toLocaleDateString() %>
+                    </div>
+                    <div class="card-text mb-2"><%= article.description %></div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+      </div>
+      <div class="rightcolumn">
+        <div class="card" id="card">
+          <h3>About Me:</h3>
+            <p class="submitAbout" id="submitAbout"></p>
+            <textarea name="aboutText" class="aboutText1" id="aboutText" cols="40" rows="10" placeholder="About Text"></textarea>
+            <button type="button" onclick="submitAbout()">Change About</button>
+        </div>
+        <div class="card" id="card">
+            <h3>Follow Me:</h3>
+            <p class="followText" id="followText"></p>
+            <input type="text" name="followInput" class="followInput" placeholder="Instagram: @brian_steuber" size="30">
+            <br>
+            <br>
+            <button type="button" onclick="submitFollow()">Change Follow</button>
+        </div>
+      </div>
+      <div class="template">
+      </div>
+    </div>
+    <form action="/logout?_method=DELETE" method="POST">
+        <button type="submit">Log Out</button>
+    </form>
+      <div class="footer">
+        <p>Designed by: Brian Steuber</p>
+        <p>Business Inquiries: <a href="">brian.steuber18@gmail.com</a></p>
+      </div> 
+
+
+   
+
+    
+
+    
+</body>
+</html>
+
