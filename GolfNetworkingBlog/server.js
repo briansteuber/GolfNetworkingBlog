@@ -15,7 +15,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 
   mongoose.connect('mongodb://localhost/golfnetworkingblog', { 
-    useNewUrlParser: true, useUnifiedTopology: true 
+    useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true
   })
   
   const initializePassport = require('./passport-config')
@@ -39,7 +39,7 @@ if (process.env.NODE_ENV !== 'production') {
   app.use(passport.initialize())
   app.use(passport.session())
   app.use(methodOverride('_method'))
-  app.use(express.static(__dirname + '/public'));
+  app.use(express.static(__dirname + '/public'))
 
   app.use('/articles', articleRouter)
   
