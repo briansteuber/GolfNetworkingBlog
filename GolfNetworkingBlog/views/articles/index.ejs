@@ -73,34 +73,36 @@
     background-color: white;
 }
     </style>
+    
 </head>
 <body>
     <div class="header">
-        <label for="blogName" id="blogTitle" class="blogTitle">Blog Name:</label>
+        <label for="blogName" id="blogTitle" class="blogTitle"><%= name %>'s Blog</label>
         <br>
-        <input type="text" name="blogName" class="blogName" placeholder="Blog Name">
-        <button type="button" id="submitTitle" class="submitTitle" onclick="submitTitle()">Change Title</button>
     </div>
     <div class="row">
       <div class="leftcolumn" id="leftcolumn">
         <br>
-         <!--<h1>Hi <%= name %></h1>-->
     <div class ="container">
         <h1 class="mb-4">Blog Articles</h1>
         <a href="/articles/new" class="btn btn-success">New Article</a>
-
-
+        
+        <form action="/logout?_method=DELETE" method="POST">
+          <br>
+          <button type="submit">Log Out</button>
+        </form>
         <% articles.forEach(article => { %>
             <div class="card mt-4">
                 <div class="card-body">
                     <h4 class="card-title"><%= article.title %></h4>
-                    <div class="card-subtitle text-muted mb-2">
+                    <div class="card-subtitle mb-2">
                         <%= article.createdAt.toLocaleDateString() %>
                     </div>
                     <div class="card-text mb-2"><%= article.description %></div>
-                    <a href="articles/<%= article.id %>" class="btn btn-primary">Read More</a>
+                    <a href="articles/<%= article.slug %>" class="btn btn-primary">View Post</a>
+                    <a href="articles/edit/<%= article.id %>" class="btn btn-info">Edit Post</a>
                     <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="submit" class="btn btn-danger">Delete Post</button>
                     </form>
                 </div>
             </div>
@@ -110,13 +112,15 @@
       <div class="rightcolumn">
         <div class="card" id="card">
           <h3>About Me:</h3>
-            <p class="submitAbout" id="submitAbout"></p>
+            <p class="submitAbout" id="submitAbout">My name is Brian Steuber and I am a Junior studying Computer Science at Gonzaga University.
+              I am 20 years old and live in San Jose, California. I have 2 sisters and I enjoy playing golf in my spare time.
+            </p>
             <textarea name="aboutText" class="aboutText1" id="aboutText" cols="40" rows="10" placeholder="About Text"></textarea>
             <button type="button" onclick="submitAbout()">Change About</button>
         </div>
         <div class="card" id="card">
             <h3>Follow Me:</h3>
-            <p class="followText" id="followText"></p>
+            <p class="followText" id="followText">Instagram: @brian_steuber</p>
             <input type="text" name="followInput" class="followInput" placeholder="Instagram: @brian_steuber" size="30">
             <br>
             <br>
@@ -126,20 +130,11 @@
       <div class="template">
       </div>
     </div>
-    <form action="/logout?_method=DELETE" method="POST">
-        <button type="submit">Log Out</button>
-    </form>
+    <br>
       <div class="footer">
         <p>Designed by: Brian Steuber</p>
-        <p>Business Inquiries: <a href="">brian.steuber18@gmail.com</a></p>
-      </div> 
-
-
-   
-
-    
-
-    
+        <p>Business Inquiries: brian.steuber18@gmail.com</p>
+      </div>
 </body>
 </html>
 

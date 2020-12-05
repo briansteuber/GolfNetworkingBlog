@@ -12,11 +12,14 @@
         <div><%= article.createdAt.toLocaleDateString() %>
         </div>
         <br>
-        <a href="/" class="btn btn-secondary">All Artices</a>
-        <a href="/articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>
         <div>
             <%= article.description %>
         </div>
+        <br>
+        <a href="/" class="btn btn-secondary">All Articles</a>
+        <a href="/articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>
+        <a href="/articles/reply/<%= article.id %>" class="btn btn-primary">Reply</a>
+        
         
     </div>
 

@@ -41,7 +41,7 @@ if (process.env.NODE_ENV !== 'production') {
   app.use(methodOverride('_method'))
   app.use(express.static(__dirname + '/public'))
 
-  app.use('/articles', articleRouter)
+
   
   app.get('/', checkAuthenticated, async (req, res) => {
     const articles = await Article.find().sort({
@@ -98,5 +98,7 @@ if (process.env.NODE_ENV !== 'production') {
     }
     next()
   }
+
+  app.use('/articles', articleRouter)
   
   app.listen(3001)
