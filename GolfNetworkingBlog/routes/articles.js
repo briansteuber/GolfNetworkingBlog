@@ -11,6 +11,11 @@ router.get('/edit/:id', async (req, res) => {
     res.render('articles/edit.ejs', { article: article })
 })
 
+router.get('/reply/:id', async (req, res) => {
+    const article = await Article.findById(req.params.id)
+    res.render('articles/reply.ejs', { article: article })
+})
+
 router.get('/:slug', async (req, res) => {
     const article = await Article.findOne({slug: req.params.slug})
     if (article == null)
