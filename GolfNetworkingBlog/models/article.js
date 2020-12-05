@@ -20,6 +20,10 @@ const articleSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true
+    },
+    comment: {
+        type: String,
+        required: false
     }
 })
 

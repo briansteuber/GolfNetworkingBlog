@@ -43,6 +43,7 @@ function saveArticle(path) {
         let article = req.article
         article.title = req.body.title
         article.description = req.body.description
+        article.comment = req.body.comment
         try {
             article = await article.save()
             res.redirect(`/articles/${article.slug}`)
