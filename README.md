@@ -7,7 +7,11 @@ This project emulates a blog. I intend to use this blog to communicate via golfe
 2. Login Page 
 3. Blog Page
 # Installation
-To install, simply download the zip file and run using chrome or some other browser. 
+To install, simply download the zip file.
+After open in Visual Studio Code. 
+Next, open up a terminal in VSC and cd into "GolfNetworkingBlog"
+Afterwards, do npm run theStart.
+Then, go to a browser and type in: localhost:3001
 # Usage
 You should start at the Create page and it will ultimatley link you to the blog page. When an account is created, you will be prompted to go to the login page and login to the account you just created. From there you will login and be at the blog page. In the blog page, you can customize settings like the page name, about me info, and social media account names. Since this is a blog, users will be able to post, edit, delete, and reply to blogs. My blog incorperates all of these.
 # Contributing
