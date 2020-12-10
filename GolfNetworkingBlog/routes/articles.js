@@ -23,15 +23,16 @@ router.get('/:slug', async (req, res) => {
     res.render('articles/show.ejs', { article: article})
 })
 
+
 router.post('/', async (req, res, next) => {
     req.article = new Article()
     next()
-}, saveArticle('new'))
+}, saveArticle('new'), saveArticle('reply'))
 
 router.put('/:id', async (req, res, next) => {
     req.article = await Article.findById(req.params.id)
     next()
-}, saveArticle('edit'))
+}, saveArticle('edit'), saveArticle('reply'))
 
 router.delete('/:id', async (req, res) => {
     await Article.findByIdAndDelete(req.params.id)
@@ -44,11 +45,18 @@ function saveArticle(path) {
         article.title = req.body.title
         article.description = req.body.description
         article.comment = req.body.comment
+        article.blogtitle = req.body.blogtitle
+        console.log(req.body.comment)
         try {
+            console.log("working")
             article = await article.save()
             res.redirect(`/articles/${article.slug}`)
+            
         } catch(e) {
+            console.log("not working")
+            console.log(e)
             res.render(`articles/${path}`, { article: article})
+           
         }
     }
 }

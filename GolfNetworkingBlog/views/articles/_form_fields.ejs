@@ -8,6 +8,11 @@
     <textarea name="description" id="description" class="form-control" cols="30" rows="10" required><%= article.description %></textarea>
 </div>
 
+<div class="form-group" hidden="true">
+    <label for="comment">Comment: Optional</label>
+    <textarea name="comment" id="comment" class="form-control" cols="30" rows="2"><%= article.comment %></textarea>
+</div>
+
 <!--<a href="" class="btn btn-secondary">Cancel</a>-->
 
 <button type="submit" class="btn btn-primary">Save</button>
