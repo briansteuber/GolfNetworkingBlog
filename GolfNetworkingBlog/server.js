@@ -12,6 +12,7 @@ if (process.env.NODE_ENV !== 'production') {
   const methodOverride = require('method-override')
   const articleRouter = require('./routes/articles')
   const Article = require("./models/article.js")
+  const User = require("./models/user.js")
 
 
   mongoose.connect('mongodb://localhost/golfnetworkingblog', { 
@@ -61,10 +62,29 @@ if (process.env.NODE_ENV !== 'production') {
   }))
   
   app.get('/register', checkNotAuthenticated, (req, res) => {
+    
     res.render('register.ejs')
   })
   
   app.post('/register', checkNotAuthenticated, async (req, res) => {
+    req.user = new User()
+    const hashedPassword = await bcrypt.hash(req.body.password, 10)
+    let user = req.user
+    user.name = req.body.name
+    user.username = req.body.username
+    user.id = Date.now().toString()
+    user.password = hashedPassword
+        try {
+            console.log("working")
+            user = await user.save()
+            res.redirect('/login')
+        } catch(e) {
+            console.log("not working")
+            console.log(e)
+            res.redirect('/register')
+           
+        }
+    
     try {
       const hashedPassword = await bcrypt.hash(req.body.password, 10)
       users.push({
@@ -77,6 +97,7 @@ if (process.env.NODE_ENV !== 'production') {
     } catch {
       res.redirect('/register')
     }
+    
   })
   
   app.delete('/logout', (req, res) => {
@@ -98,6 +119,7 @@ if (process.env.NODE_ENV !== 'production') {
     }
     next()
   }
+
 
   app.use('/articles', articleRouter)
   
