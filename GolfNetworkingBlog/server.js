@@ -15,7 +15,6 @@ if (process.env.NODE_ENV !== 'production') {
   const Article = require("./models/article.js")
   const User = require("./models/user.js")
 
-
   var theUser = {
     name: "required",
     username: "required",
