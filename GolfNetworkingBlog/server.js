@@ -3,6 +3,7 @@ if (process.env.NODE_ENV !== 'production') {
   }
   
   const mongoose = require('mongoose')
+  const Validator = require('validatorjs')
   const express = require('express')
   const app = express()
   const bcrypt = require('bcrypt')
@@ -14,6 +15,13 @@ if (process.env.NODE_ENV !== 'production') {
   const Article = require("./models/article.js")
   const User = require("./models/user.js")
 
+
+  var theUser = {
+    name: "required",
+    username: "required",
+    password: "required",
+    id: "required"
+  }
 
   mongoose.connect('mongodb://localhost/golfnetworkingblog', { 
     useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true
@@ -62,7 +70,6 @@ if (process.env.NODE_ENV !== 'production') {
   }))
   
   app.get('/register', checkNotAuthenticated, (req, res) => {
-    
     res.render('register.ejs')
   })
   
@@ -84,7 +91,31 @@ if (process.env.NODE_ENV !== 'production') {
             res.redirect('/register')
            
         }
-    
+      
+    let name = req.body.name
+    let username = req.body.username
+    let password = hashedPassword
+    let id = user.id
+
+    let data  = {
+      name: name,
+      username: username,
+      password: password,
+      id: id
+    }
+
+    let validation = new Validator(data, theUser)
+    console.log("Passed " + validation.passes() + "Failed" + validation.fails()) 
+
+    if(validation.fails()) {
+      let errorsList = {
+        name: validation.errors.first("name"),
+        last: validation.errors.first("last"),
+        password: validation.errors.first("password"),
+      }
+      console.log("FAILED" + errorsList)
+    }
+
     try {
       const hashedPassword = await bcrypt.hash(req.body.password, 10)
       users.push({
@@ -97,7 +128,6 @@ if (process.env.NODE_ENV !== 'production') {
     } catch {
       res.redirect('/register')
     }
-    
   })
   
   app.delete('/logout', (req, res) => {
