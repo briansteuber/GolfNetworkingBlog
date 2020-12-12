@@ -7,15 +7,18 @@ This project emulates a blog. I intend to use this blog to communicate via golfe
 2. Login Page 
 3. Blog Page
 # Installation
-To install, simply download the zip file.
-After open in Visual Studio Code. 
+To install, simply clone this repository or download the zip file.
+One must install mongoDB, bcyrpt, and slug to run this web app.
+One must need two collections, one named 'articles' and the other 'users'.
+This is all stored in my 'golfnetworkingblog' database.
+After this open the app in Visual Studio Code. 
 Next, open up a terminal in VSC and cd into "GolfNetworkingBlog"
 Afterwards, do npm run theStart.
 Then, go to a browser and type in: localhost:3001
 # Usage
-You should start at the Create page and it will ultimatley link you to the blog page. When an account is created, you will be prompted to go to the login page and login to the account you just created. From there you will login and be at the blog page. In the blog page, you can customize settings like the page name, about me info, and social media account names. Since this is a blog, users will be able to post, edit, delete, and reply to blogs. My blog incorperates all of these.
+You should start at the Create page and it will ultimatley link you to the blog page. When an account is created, you will be prompted to go to the login page and login to the account you just created. From there you will login and be at the blog page. In the blog page, you can customize settings like the about me info, and social media account names. Since this is a blog, users will be able to post, edit, delete, and reply to blogs. My blog incorperates all of these.
 # Contributing
-If one would like to contribute to this page, I could use help with converting this data that is stored locally to a database like MongoDB. I also could use some help polishing up the look of my page and some of the JQuery that is used.
+If one would like to contribute to this page, I would love the help! My email can be found at the bottom of the website as a point of contact.
 # Credits
 Author: Brian Steuber
 Contributors: None
