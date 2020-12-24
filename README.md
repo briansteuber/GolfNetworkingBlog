@@ -1,7 +1,7 @@
 # Golf Networking Blog 
 cpsc-314-web-development-final-project-briansteuber created by GitHub Classroom
 # Description
-This project emulates a blog. I intend to use this blog to communicate via golfers. If a person wants to play at a club that they are not a member at, they can create an account on my blog site and reach out to someone from that club. 
+This project emulates a blog. I intend to use this blog to communicate via golfers. If a person wants to play at a club that they are not a member at, they can create an account on my blog site and reach out to someone from that club. This blog was created using the MERN Stack.
 # Table of Contents
 1. Create Account Page
 2. Login Page 
